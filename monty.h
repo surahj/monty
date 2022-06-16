@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#define _GNU_SOURCE
 
 #define STACK 0
 #define QUEUE 1
@@ -50,6 +51,8 @@ void free_tokens(void);
 unsigned int token_arr_len(void);
 int run_monty(FILE *script_fd);
 void set_op_tok_error(int error_code);
+int is_empty_line(char *line, char *delims);
+void (*get_op_func(char *opcode))(stack_t**, unsigned int);
 
 /* OPCODE FUNCTIONS */
 void monty_push(stack_t **stack, unsigned int line_number);
