@@ -38,6 +38,68 @@ Run the interpreter on a file:
 | queue | Switches a stack to queue mode. |
 | # | Opcodes preceeded by a # are treated as comments and the corresponding line is ignored. |
 
+# Examples
+Note, Monty Interpreter runs in the default mode of STACK mode. Meaning it uses a stack. To switch to queue mode, see examples below.
+
+Push values onto the stack and print them all, or the top of the stack/front of queue.
+
+```
+$ cat push_pall_pint.m
+push 1
+push 2
+push 3
+pall
+pint
+$ ./monty push_pall_pint.m
+3
+2
+1
+3
+```
+
+Using mathmatical operations to add, multiply, divide, etc. Takes the second from the top and performs the operation on the top: second_from_top / top, second_from_top - top, etc. Then assigns that to the second_from_top and pops the top element off the stack.
+
+```
+$ cat math.m
+push 3
+push 2
+push 1
+pall
+mul
+pall
+$ ./monty math.m
+1
+2
+3
+1
+6
+```
+
+Entering queue mode to perform all operations in FIFO (queue) mode instead of default LIFO (stack) mode. Note: does not change current stack, sets front of queue to top of stack.
+
+```
+$ cat queue.m
+queue
+push 1
+push 2
+push 3
+pall
+stack
+push 4
+push 5
+push 6
+pall
+$ ./monty queue.m
+1
+2
+3
+6
+5
+4
+1
+2
+3
+```
 
 
 
