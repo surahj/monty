@@ -17,4 +17,5 @@ Run the interpreter on a file:
 
 # Monty Opcodes
 | Opescode | Description |
+| -------- | ----------- |
 | Push | Push an element to the stack |
